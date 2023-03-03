@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Подразделения</title>
+</head>
+<body>
+<a th:href="@{/}">На главную</a>
+<br><br>
+<h1>Структурные подразделения</h1>
+<br><br>
+<table>
+    <tr>
+        <td>...</td>
+    </tr>
+</table>
+
+<div th:each="division : ${divisions}">
+  <p th:text="${division}"></p>
+    <a th:href="@{divisionInfo/{id}(id=${division.id})}">Изменить</a>
+<br>
+</div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Новый работник</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<h1>информация о работнике</h1>
+<br><br>
+<form action="#" th:action="@{/saveWorker}" th:object="${worker}" method="post">
+    id: <input type="hidden" th:field="*{id}"/>
+    <br><br>
+    Фамилия: <input type="text" th:field="*{surname}"/>
+    <br><br>
+    Имя: <input type="text" th:field="*{name}"/>
+    <br><br>
+    Отчество: <input type="text" th:field="*{patronymic}"/>
+    <br><br>
+    <!--    Структурное подразделение: <input type="text" th:field="*{division}"/>-->
+    Структурное подразделение:
+    <select th:field="*{division}">
+        <option th:each="division : ${divisions}" th:value="${division.id}" th:text="${division.divisionName}"></option>
+    </select>
+    <br><br>
+    Должность: <input type="text" th:field="*{positionLevel}"/>
+    <br><br>
+    Минимальная ЗП: <input type="text" th:field="*{minimalSalary}"/>
+    <br><br><br>
+    <input type="submit" value="Сохранить"/>
+</form>
+</body>
+</html>

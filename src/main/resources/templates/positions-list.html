@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Список должностей</title>
+</head>
+<body>
+<a th:href="@{/}">На главную</a>
+<br><br>
+<h1>Список должностей</h1>
+<br><br>
+<table>
+  <tr>
+    <td>...</td>
+  </tr>
+</table>
+
+<div th:each="position : ${positions}">
+  <p th:text="${position}"></p>
+  <a th:href="@{positionInfo/{id}(id=${position.id})}">Изменить</a>
+  <br>
+</div>
+</body>
+</html>

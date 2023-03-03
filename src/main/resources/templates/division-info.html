@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Структурное подразделение</title>
+  <h1>Структурное подразделение</h1>
+  <br><br>
+
+</head>
+<body>
+<form action="#" th:action="@{/saveDivision}" th:object="${division}" method="post">
+    <input type="hidden" th:field="*{id}"/>
+  Название структурного подразделения: <input type="text" th:field="*{divisionName}"/>
+  <br><br>
+  <br>
+  <input type="submit" value="Сохранить"/>
+</form>
+</body>
+</html>

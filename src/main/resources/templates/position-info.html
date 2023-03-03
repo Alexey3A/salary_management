@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Должность</title>
+</head>
+<h1>Должность</h1>
+<br><br>
+<body>
+<form action="#" th:action="@{/savePosition}" th:object="${position}" method="post">
+  <input type="hidden" th:field="*{id}"/>
+  Название должности: <input type="text" th:field="*{positionName}"/>
+    <br><br>
+    Должностной оклад: <input type="text" th:field="*{basicSalary}"/>
+  <br><br>
+  <br>
+  <input type="submit" value="Сохранить"/>
+</form>
+</body>
+</html>

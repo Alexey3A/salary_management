@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="#" th:action="@{saveSource}" th:object="${source}" method="post">
+  Название источника ЗП: <input type="text" th:field="*{salarySourceName}"/>
+  <br><br>
+  Сумма: <input type="text" th:field="*{salarySourceSum}"/>
+  <br><br>
+  <br>
+  <input type="submit" value="Сохранить"/>
+</form>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Good Thymes Virtual Grocery</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<input type="button" value="Добавить работника"
+       onclick="window.location.href='addNewWorker'">
+<br><br>
+<table>
+    <tr>
+        <td> ФИО</td>
+        <td> Должность</td>
+        <td> Минимальная ЗП</td>
+        <td></td>
+        <td> ЗП</td>
+    </tr>
+
+    <tr th:each="worker : ${workers}">
+        <!--        <a th:href="${updateWorker}" value="/updateWorker">-->
+        <!--            <a type="text" name="workerId" th:id="${worker.id}"></a>-->
+        <!--        </a>-->
+        <td th:text="${worker.name}"></td>
+        <td th:text="${worker.positionLevel.positionName}"></td>
+        <td th:text="${worker.minimalSalary}"></td>
+        <td>
+            <input type="text" name="salary">
+        </td>
+        <td th:text="${worker.totalSalary}"></td>
+        <td>
+            <a th:href="@{workerInfo/{id}(id=${worker.id})}">Изменить</a>
+            <a th:href="@{deletingAnWorker/{id}(id=${worker.id})}">Удалить</a>
+            <!--            <input type="button" value="изменить" >-->
+        </td>
+        <!--        <td>-->
+        <!--            <input type="button" value="изменить"-->
+        <!--                onclick="window.location.href='updateWorker'">-->
+
+        <!--        </td>-->
+    </tr>
+</table>
+</tr>
+</table>
+<br><br>
+<input type="button" value="Добавить источник ЗП"
+       onclick="window.location.href='addNewSalarySource'">
+<br><br>
+<table>
+    <tr>
+        <td> Источник ЗП</td>
+        <td> Сумма</td>
+    </tr>
+    <tr th:each="source : ${sources}">
+        <td th:text="${source.salarySourceName}"></td>
+        <td th:text="${source.salarySourceSum}"></td>
+    </tr>
+</table>
+<br>
+<p>Итого :
+    <span th:text="${totalSum}"></span></p>
+<br>
+<br>
+<br><br>
+<input type="button" value="Добавить структурное подразделение"
+       onclick="window.location.href='addNewDivision'">
+<a th:href="@{/allDivisions}">Структурные подразделения</a>
+<br><br>
+<input type="button" value="Добавить должность"
+       onclick="window.location.href='addNewPosition'">
+<a th:href="@{/allPositions}">Список должностей</a>
+<br><br>
+</body>
+</html>
